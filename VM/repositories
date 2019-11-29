@@ -8,4 +8,7 @@ http://dl-cdn.alpinelinux.org/alpine/latest-stable/community
 http://pkgs.alpinelinux.org/package/edge/main/x86/git
 http://pkgs.alpinelinux.org/package/v3.4/main/x86/mosquitto
 http://pkgs.alpinelinux.org/package/edge/main/x86_64/npm
+<<<<<<< HEAD
 http://pkgs.alpinelinux.org/packages/edge/main/x86/gcc
+=======
+>>>>>>> 6bf64daed8bf9424f52e39b6778d87c7cb7acb7e

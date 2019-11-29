@@ -2,10 +2,17 @@ apk add git
 apk add npm
 apk add nodejs
 
+<<<<<<< HEAD
 npm install on the git from github
 node-red to launch node-red
 
 apk add mongodb
+=======
+npm install on the git from github : https://github.com/node-red/node-red
+node-red to launch node-red
+
+get from https://github.com/mongodb/mongo
+>>>>>>> 6bf64daed8bf9424f52e39b6778d87c7cb7acb7e
 apk add moskitto
 
 
