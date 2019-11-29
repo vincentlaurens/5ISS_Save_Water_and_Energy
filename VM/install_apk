@@ -1,0 +1,11 @@
+apk add git
+apk add npm
+apk add nodejs
+
+npm install on the git from github : https://github.com/node-red/node-red
+node-red to launch node-red
+
+get from https://github.com/mongodb/mongo
+apk add moskitto
+
+
