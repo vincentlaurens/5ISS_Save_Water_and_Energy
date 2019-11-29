@@ -1,0 +1,10 @@
+#/media/cdrom/apks
+http://mirrors.ircam.fr/pub/alpine/v3.10/main
+#http://mirrors.ircam.fr/pub/alpine/v3.10/community
+#http://mirrors.ircam.fr/pub/alpine/edge/main
+#http://mirrors.ircam.fr/pub/alpine/edge/community
+#http://mirrors.ircam.fr/pub/alpine/edge/testing
+http://dl-cdn.alpinelinux.org/alpine/latest-stable/community
+http://pkgs.alpinelinux.org/package/edge/main/x86/git
+http://pkgs.alpinelinux.org/package/v3.4/main/x86/mosquitto
+http://pkgs.alpinelinux.org/package/edge/main/x86_64/npm
