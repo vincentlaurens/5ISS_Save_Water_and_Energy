@@ -1,0 +1,43 @@
+###"Docker-compose.yml is configuration to deploy services with docker-compose command"
+version: "3"  # docker-compose version
+services:     # list all services for your application
+
+########################################################"NODE-RED"###########################################
+  nodered:
+    # fetch pre-build image from a registry on Docker Hub (https://hub.docker.com/)
+    image: nodered-service-imgage:latest
+    # relative location of Dockerfile
+    build: ./node-red/service/
+    # expose port 1880
+    ports: [ "1880" ]
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+########################################################"MongoDB"###########################################
+  mongodb-db:
+  # fetch pre-build image from a registry on Docker Hub (https://hub.docker.com/)
+    image: shoppingcart-db-image:latest
+    # relative location of Dockerfile
+    build: ../BI/shoppingcart/src/db
+    # expose port 5984 of host node
+    ports: [ "3101:5984" ]
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+
+  mongodb-compass:
+    image: shoppingcart-daemon-image:latest
+    build: ../BI/shoppingcart
+    # wait until service panier is up
+    depends_on: [ "mongo-db" ]
+    # expose port 80 of host node
+    ports: [ "3001:80" ]
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.type == daemon
