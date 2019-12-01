@@ -1,4 +1,5 @@
-site source https://hub.docker.com/r/mvertes/alpine-mongo
+# Install Docker MongoDB on Alpine VM
+Site source:  https://hub.docker.com/r/mvertes/alpine-mongo
 
-to launch mongo 
+## To launch mongo 
 docker exec -ti mongo sh or mongo
