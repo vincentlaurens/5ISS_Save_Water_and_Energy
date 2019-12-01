@@ -1,6 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include<ArduinoJson.h>
+#include <math.h>
 
 
 // Update these with values suitable for your network.
@@ -17,6 +18,47 @@ const char* mqtt_server = "maqiatto.com";
 WiFiClient wifiClient;
 
 PubSubClient client(wifiClient);
+//
+//Sensors
+volatile int flow_frequency; // Measures flow sensor pulses
+unsigned int l_hour; // Calculated litres/hour
+float temperature;
+unsigned long currentTime;
+unsigned long cloopTime;
+const int B = 4275;               // B value of the thermistor
+const int R0 = 100000;            // R0 = 100k
+const int pinTempSensor = A0;     // Grove - Temperature Sensor connect to A0
+//
+//
+
+void PrintDBTP(){
+  int a = analogRead(pinTempSensor);
+
+    float R = 1023.0/a-1.0;
+    R = R0*R;
+
+    temperature = 1.0/(log(R/R0)/B+1/298.15)-273.15; // convert to temperature via datasheet
+   currentTime = millis();
+   // Every second, calculate and print litres/hour
+   if(currentTime >= (cloopTime + 1000))
+   {
+      cloopTime = currentTime; // Updates cloopTime
+      // Pulse frequency (Hz) = 7.5Q, Q is flow rate in L/min.
+      l_hour = (flow_frequency * 60 / 7.5); // (Pulse frequency x 60 min) / 7.5Q = flowrate in L/hour
+      flow_frequency = 0; // Reset Counter
+      //Serial.print("temperature = ");
+   // Serial.println(temperature);
+    //  Serial.print(l_hour,DEC); // Print litres/hour
+    //  Serial.println(" L/hour");
+
+   }
+  
+}
+
+void IRAM_ATTR flow () // Interrupt function
+{
+   flow_frequency++;
+}
 
 void setup_wifi() {
   delay(10);
@@ -24,6 +66,7 @@ void setup_wifi() {
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
+  WiFi.persistent(false);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -71,6 +114,12 @@ void callback(char* topic, byte *payload, unsigned int length) {
 
 void setup() {
   Serial.begin(9600);
+  //////
+     attachInterrupt(14, flow, RISING); // Setup Interrupt
+   sei(); // Enable interrupts
+   currentTime = millis();
+   cloopTime = currentTime;
+  //////
   Serial.setTimeout(500);// Set time out for
   setup_wifi();
   client.setServer(mqtt_server, mqtt_port);
@@ -86,11 +135,12 @@ void publishSerialData(char *serialData) {
 }
 void loop() {
   client.loop();
+  PrintDBTP();
   const int capacity = JSON_OBJECT_SIZE(3);
   StaticJsonDocument<capacity> doc;
   doc["id"] = 1234;
-  doc["temp"] = random(1, 500) / 100.0;
-  doc["debit"] = random(1, 500) / 100.0;
+  doc["temp"] = temperature;
+  doc["debit"] = l_hour;
   String rep;
   serializeJson(doc,rep);
   client.publish(MQTT_SERIAL_PUBLISH_CH, rep.c_str());
