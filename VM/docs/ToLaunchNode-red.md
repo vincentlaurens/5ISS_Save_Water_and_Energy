@@ -7,7 +7,7 @@ You can get more information on the docker hub official website: https://hub.doc
 
 ## Creation of docker container
 
-1) To create docker container mynodered with docker run command
+1) To create docker container mynodered with docker run command (already done/ already installed)
 `docker run it -p 1880:1880 --name mynodered nodered/node-red-docker --restart unless-stopped mynodered`
 2) Start mynodered container
 `docker start mynodered`
