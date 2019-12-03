@@ -1,4 +1,4 @@
-# Launch Docker container on VM
+# Launch Docker container Node-Red on VM
 (Normally it is launch on boot however this document explain how to install it on VM if we encounter an issue)
 
 We have created on our VM a container "Docker" to launch the service Node-Red
