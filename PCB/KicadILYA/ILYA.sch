@@ -1,0 +1,127 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ESP8266:NodeMCU1.0(ESP-12E) U1
+U 1 1 5DF783D9
+P 4550 2700
+F 0 "U1" V 4603 1772 60  0000 R CNN
+F 1 "NodeMCU1.0(ESP-12E)" V 4497 1772 60  0000 R CNN
+F 2 "nodemcu:SEEED_113990105" H 3950 1850 60  0001 C CNN
+F 3 "" H 3950 1850 60  0000 C CNN
+	1    4550 2700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MyRelay:Relay_2_pins U2
+U 1 1 5DF78856
+P 5350 4150
+F 0 "U2" H 5312 3843 50  0000 R CNN
+F 1 "Relay_2_pins" H 5312 3934 50  0000 R CNN
+F 2 "" H 5350 4150 50  0001 C CNN
+F 3 "" H 5350 4150 50  0001 C CNN
+	1    5350 4150
+	-1   0    0    1   
+$EndComp
+$Comp
+L MyConnectors:Flow_connector U3101
+U 1 1 5DF78A93
+P 5200 1200
+F 0 "U3101" H 5278 1110 50  0000 L CNN
+F 1 "Flow_connector" H 5278 1019 50  0000 L CNN
+F 2 "" H 5200 1200 50  0001 C CNN
+F 3 "" H 5200 1200 50  0001 C CNN
+	1    5200 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 3500 3850 3650
+Wire Wire Line
+	3850 3650 3800 3650
+Wire Wire Line
+	5200 1550 5200 1700
+Wire Wire Line
+	5200 1700 5250 1700
+Wire Wire Line
+	5250 1700 5250 1900
+Wire Wire Line
+	5100 1550 5100 1750
+Wire Wire Line
+	5100 1750 5150 1750
+Wire Wire Line
+	5150 1750 5150 1900
+Wire Wire Line
+	4550 1900 4550 1700
+Wire Wire Line
+	4550 1700 5050 1700
+Wire Wire Line
+	5050 1700 5050 1550
+Wire Wire Line
+	5150 3500 5150 3700
+Wire Wire Line
+	5250 3500 5250 3650
+Wire Wire Line
+	5250 3650 5300 3650
+Wire Wire Line
+	5300 3650 5300 3700
+Wire Wire Line
+	3800 3650 3800 3750
+Wire Wire Line
+	4850 3650 4850 3500
+Wire Wire Line
+	4750 3500 4750 3600
+$Comp
+L MyConnectors:Temperature_connector U?
+U 1 1 5DF80F41
+P 3800 4150
+F 0 "U?" H 3412 3872 50  0000 R CNN
+F 1 "Temperature_connector" H 3412 3963 50  0000 R CNN
+F 2 "" H 3800 4150 50  0001 C CNN
+F 3 "" H 3800 4150 50  0001 C CNN
+	1    3800 4150
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4850 3650 4100 3650
+Wire Wire Line
+	4100 3650 4100 3750
+Wire Wire Line
+	4750 3600 4000 3600
+Wire Wire Line
+	4000 3600 4000 3750
+NoConn ~ 3900 3750
+NoConn ~ 3850 1900
+NoConn ~ 3950 1900
+NoConn ~ 4050 1900
+NoConn ~ 4150 1900
+NoConn ~ 4250 1900
+NoConn ~ 4350 1900
+NoConn ~ 4450 1900
+NoConn ~ 4650 1900
+NoConn ~ 4750 1900
+NoConn ~ 4850 1900
+NoConn ~ 4950 1900
+NoConn ~ 5050 1900
+NoConn ~ 3950 3500
+NoConn ~ 4050 3500
+NoConn ~ 4150 3500
+NoConn ~ 4250 3500
+NoConn ~ 4350 3500
+NoConn ~ 4450 3500
+NoConn ~ 4550 3500
+NoConn ~ 4650 3500
+NoConn ~ 4950 3500
+NoConn ~ 5050 3500
+$EndSCHEMATC
