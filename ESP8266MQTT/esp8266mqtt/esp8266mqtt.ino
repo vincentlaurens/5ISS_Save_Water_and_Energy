@@ -33,10 +33,8 @@ const int pinTempSensor = A0;     // Grove - Temperature Sensor connect to A0
 
 void PrintDBTP(){
   int a = analogRead(pinTempSensor);
-
     float R = 1023.0/a-1.0;
     R = R0*R;
-
     temperature = 1.0/(log(R/R0)/B+1/298.15)-273.15; // convert to temperature via datasheet
    currentTime = millis();
    // Every second, calculate and print litres/hour
@@ -50,9 +48,7 @@ void PrintDBTP(){
    // Serial.println(temperature);
     //  Serial.print(l_hour,DEC); // Print litres/hour
     //  Serial.println(" L/hour");
-
    }
-  
 }
 
 void IRAM_ATTR flow () // Interrupt function
@@ -61,7 +57,7 @@ void IRAM_ATTR flow () // Interrupt function
 }
 
 void setup_wifi() {
-  delay(10);
+  //delay(10);
   // We start by connecting to a WiFi network
   Serial.println();
   Serial.print("Connecting to ");
@@ -112,19 +108,24 @@ void callback(char* topic, byte *payload, unsigned int length) {
   Serial.println();
 }
 
+wifiSetup (){
+  setup_wifi();
+  client.setServer(mqtt_server, mqtt_port);
+  client.setCallback(callback);
+  reconnect();
+  
+}
+
 void setup() {
   Serial.begin(9600);
   //////
      attachInterrupt(14, flow, RISING); // Setup Interrupt
+     attachInterrupt(14, wifiSetup, RISING);
    sei(); // Enable interrupts
    currentTime = millis();
    cloopTime = currentTime;
   //////
   Serial.setTimeout(500);// Set time out for
-  setup_wifi();
-  client.setServer(mqtt_server, mqtt_port);
-  client.setCallback(callback);
-  reconnect();
 }
 
 void publishSerialData(char *serialData) {
