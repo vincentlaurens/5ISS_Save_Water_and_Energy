@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# ILYA-rescue_Flow_connector-MyConnectors
+# Flow_connector-MyConnectors
 #
-DEF ILYA-rescue_Flow_connector-MyConnectors U3 0 40 Y Y 1 F N
+DEF Flow_connector-MyConnectors U3 0 40 Y Y 1 F N
 F0 "U3" 0 0 50 H V C CNN
-F1 "ILYA-rescue_Flow_connector-MyConnectors" 0 0 50 H V C CNN
+F1 "Flow_connector-MyConnectors" 0 0 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -16,11 +16,11 @@ X SIG 3 -150 -400 100 U 50 50 1 1 B
 ENDDRAW
 ENDDEF
 #
-# ILYA-rescue_NodeMCU1.0(ESP-12E)-ESP8266
+# NodeMCU1.0(ESP-12E)-ESP8266
 #
-DEF ILYA-rescue_NodeMCU1.0(ESP-12E)-ESP8266 U 0 40 Y Y 1 F N
+DEF NodeMCU1.0(ESP-12E)-ESP8266 U 0 40 Y Y 1 F N
 F0 "U" 0 850 60 H V C CNN
-F1 "ILYA-rescue_NodeMCU1.0(ESP-12E)-ESP8266" 0 -850 60 H V C CNN
+F1 "NodeMCU1.0(ESP-12E)-ESP8266" 0 -850 60 H V C CNN
 F2 "" -600 -850 60 H V C CNN
 F3 "" -600 -850 60 H V C CNN
 DRAW
@@ -58,11 +58,11 @@ X CLK(SCLK) 9 -800 -100 200 R 50 50 1 1 B
 ENDDRAW
 ENDDEF
 #
-# ILYA-rescue_Relay_2_pins-MyRelay
+# Relay_2_pins-MyRelay
 #
-DEF ILYA-rescue_Relay_2_pins-MyRelay U 0 40 Y Y 2 F N
+DEF Relay_2_pins-MyRelay U 0 40 Y Y 2 F N
 F0 "U" 0 0 50 H V C CNN
-F1 "ILYA-rescue_Relay_2_pins-MyRelay" 0 0 50 H V C CNN
+F1 "Relay_2_pins-MyRelay" 0 0 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -74,11 +74,11 @@ X GND ~-UB 200 -450 100 U 50 50 2 1 W
 ENDDRAW
 ENDDEF
 #
-# ILYA-rescue_Temperature_connector-MyConnectors
+# Temperature_connector-MyConnectors
 #
-DEF ILYA-rescue_Temperature_connector-MyConnectors U 0 40 Y Y 1 F N
+DEF Temperature_connector-MyConnectors U 0 40 Y Y 1 F N
 F0 "U" 0 0 50 H V C CNN
-F1 "ILYA-rescue_Temperature_connector-MyConnectors" 0 0 50 H V C CNN
+F1 "Temperature_connector-MyConnectors" 0 0 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -87,47 +87,6 @@ X VCC 1 -300 -400 100 U 50 50 1 1 W
 X GND 2 -200 -400 100 U 50 50 1 1 W
 X NC 3 -100 -400 100 U 50 50 1 1 B
 X SIG 4 0 -400 100 U 50 50 1 1 B
-ENDDRAW
-ENDDEF
-#
-# power_+5V
-#
-DEF power_+5V #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -150 50 H I C CNN
-F1 "power_+5V" 0 140 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 2 0 1 0 -30 50 0 100 N
-P 2 0 1 0 0 0 0 100 N
-P 2 0 1 0 0 100 30 50 N
-X +5V 1 0 0 0 U 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
-# power_GND
-#
-DEF power_GND #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -250 50 H I C CNN
-F1 "power_GND" 0 -150 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
-X GND 1 0 0 0 D 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
-# power_PWR_FLAG
-#
-DEF power_PWR_FLAG #FLG 0 0 N N 1 F P
-F0 "#FLG" 0 75 50 H I C CNN
-F1 "power_PWR_FLAG" 0 150 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 6 0 1 0 0 0 0 50 -40 75 0 100 40 75 0 50 N
-X pwr 1 0 0 0 U 50 50 0 0 w
 ENDDRAW
 ENDDEF
 #
