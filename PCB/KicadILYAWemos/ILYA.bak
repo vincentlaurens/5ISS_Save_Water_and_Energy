@@ -20,7 +20,7 @@ U 1 1 5DF78856
 P 5650 2000
 F 0 "U2" H 5612 1693 50  0000 R CNN
 F 1 "Relay_2_pins" H 5612 1784 50  0000 R CNN
-F 2 "" H 5650 2000 50  0001 C CNN
+F 2 "pinHeads:PinHeader_1x02_P2.54mm_Horizontal" H 5650 2000 50  0001 C CNN
 F 3 "" H 5650 2000 50  0001 C CNN
 	1    5650 2000
 	0    1    1    0   
@@ -53,23 +53,13 @@ U 1 1 5DFA3DEE
 P 4450 2600
 F 0 "U102" V 4344 3078 60  0000 L CNN
 F 1 "WeMos_mini" V 4450 3078 60  0000 L CNN
-F 2 "wemos-d1-mini:wemos-d1-mini-with-pin-header" H 5000 1900 60  0001 C CNN
+F 2 "wemos-d1-mini:wemos-d1-mini-withoutpin" H 5000 1900 60  0001 C CNN
 F 3 "http://www.wemos.cc/Products/d1_mini.html" V 4556 3078 60  0000 L CNN
 	1    4450 2600
 	0    1    1    0   
 $EndComp
 Wire Wire Line
 	4800 2100 4800 2050
-Wire Wire Line
-	4200 3100 4200 3400
-Wire Wire Line
-	4200 3400 4000 3400
-Wire Wire Line
-	4400 3100 4400 3250
-Wire Wire Line
-	4750 3250 4750 3850
-Wire Wire Line
-	4400 3250 4750 3250
 Wire Wire Line
 	4700 3850 4700 3600
 NoConn ~ 4000 3500
@@ -216,4 +206,73 @@ Wire Wire Line
 	4000 3600 4100 3600
 Wire Wire Line
 	4000 3700 4300 3700
+$Comp
+L MyRelay:Pin_socket_1x8 U103
+U 1 1 5DFCAC32
+P 4550 1900
+F 0 "U103" H 4212 1693 50  0000 R CNN
+F 1 "Pin_socket_1x8" H 4212 1784 50  0000 R CNN
+F 2 "pinSocket:PinSocket_1x08_P2.54mm_Vertical" H 4550 1900 50  0001 C CNN
+F 3 "" H 4550 1900 50  0001 C CNN
+	1    4550 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L MyRelay:Pin-socket2_1x08 U104
+U 1 1 5DFCBECA
+P 8600 1950
+F 0 "U104" V 8399 1819 50  0000 L CNN
+F 1 "Pin-socket2_1x08" V 8490 1819 50  0000 L CNN
+F 2 "pinSocket:PinSocket_1x08_P2.54mm_Vertical2" H 8500 1600 50  0001 C CNN
+F 3 "" H 8500 1600 50  0001 C CNN
+	1    8600 1950
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+5V #PWR0110
+U 1 1 5DFCC40D
+P 4800 1600
+F 0 "#PWR0110" H 4800 1450 50  0001 C CNN
+F 1 "+5V" V 4815 1728 50  0000 L CNN
+F 2 "" H 4800 1600 50  0001 C CNN
+F 3 "" H 4800 1600 50  0001 C CNN
+	1    4800 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0103
+U 1 1 5DFCC4FC
+P 4700 1600
+F 0 "#PWR0103" H 4700 1350 50  0001 C CNN
+F 1 "GND" V 4705 1472 50  0000 R CNN
+F 2 "" H 4700 1600 50  0001 C CNN
+F 3 "" H 4700 1600 50  0001 C CNN
+	1    4700 1600
+	-1   0    0    1   
+$EndComp
+Text GLabel 8100 2150 0    50   Input ~ 0
+VCC
+NoConn ~ 8100 2050
+NoConn ~ 8100 1950
+NoConn ~ 8100 1850
+NoConn ~ 8100 1650
+NoConn ~ 8100 1450
+Text GLabel 4200 3100 3    50   Input ~ 0
+SIGTemp
+Text GLabel 4000 3400 2    50   Input ~ 0
+SIGTemp
+Text GLabel 8100 1550 0    50   Input ~ 0
+SIGTemp
+Text GLabel 8100 1750 0    50   Input ~ 0
+SIGFlow
+Text GLabel 4750 3850 1    50   Input ~ 0
+SIGFlow
+Text GLabel 4400 3100 3    50   Input ~ 0
+SIGFlow
+NoConn ~ 4600 1600
+NoConn ~ 4500 1600
+NoConn ~ 4400 1600
+NoConn ~ 4300 1600
+NoConn ~ 4200 1600
+NoConn ~ 4100 1600
 $EndSCHEMATC
