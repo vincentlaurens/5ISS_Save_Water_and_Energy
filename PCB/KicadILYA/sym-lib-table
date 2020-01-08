@@ -1,0 +1,9 @@
+(sym_lib_table
+  (lib (name KicadILYA-eagle-import)(type Legacy)(uri ${KIPRJMOD}/KicadILYA-eagle-import.lib)(options "")(descr ""))
+  (lib (name ESP8266)(type Legacy)(uri /home/vlaurens/Documents/5ISS/5ISS_Save_Water_and_Energy/kicad/kicad-ESP8266/ESP8266.lib)(options "")(descr "")(disabled))
+  (lib (name MyRelay)(type Legacy)(uri /home/vlaurens/Documents/5ISS/5ISS_Save_Water_and_Energy/kicad/KicadILYA/MyRelay.lib)(options "")(descr ""))
+  (lib (name MyConnectors)(type Legacy)(uri /home/vlaurens/Documents/5ISS/5ISS_Save_Water_and_Energy/kicad/KicadILYA/MyConnectors.lib)(options "")(descr ""))
+  (lib (name ILYA-rescue)(type Legacy)(uri ${KIPRJMOD}/ILYA-rescue.lib)(options "")(descr ""))
+  (lib (name test)(type Legacy)(uri /home/vlaurens/Documents/5ISS/5ISS_Save_Water_and_Energy/kicad/KicadILYA/test.lib)(options "")(descr ""))
+  (lib (name 113990105)(type Legacy)(uri ${KIPRJMOD}/nodemcu/113990105.lib)(options "")(descr ""))
+)

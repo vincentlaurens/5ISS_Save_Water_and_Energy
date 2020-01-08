@@ -1,0 +1,6 @@
+.title KiCad schematic
+U1 Net-_U1-Pad1_ NC_01 NC_02 NC_03 NC_04 NC_05 NC_06 NC_07 NC_08 Net-_U1-Pad10_ Net-_U1-Pad11_ NC_09 NC_10 Net-_U1-Pad14_ Net-_U1-Pad15_ Net-_U1-Pad16_ Net-_U1-Pad17_ NC_11 NC_12 NC_13 NC_14 NC_15 Net-_U1-Pad23_ NC_16 NC_17 NC_18 NC_19 NC_20 NC_21 NC_22 NodeMCU1.0(ESP-12E)
+U2 Net-_U1-Pad14_ Relay_2_pins
+U3101 Net-_U1-Pad17_ Flow_connector
+U101 Net-_U1-Pad10_ Temperature_connector
+.end
