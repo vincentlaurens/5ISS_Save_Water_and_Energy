@@ -1,0 +1,49 @@
+################################################################"
+# Code to deploy UI and DB container
+# Wriitten by ILYA dev 
+# written on Janvier 2020
+#################################################################
+# DB service mongo
+db:
+  image: mongo
+  restart: always
+  container_name: ilyaDB
+  environment:
+    MONGO_INITDB_ROOT_USERNAME: root
+    MONGO_INITDB_ROOT_PASSWORD: ilya
+  ports:
+  - 27017:27017
+  volumes:
+  - ./data:/data/db:rw
+########################################
+# DB service Administrtion interface
+mongo-express:
+  image: mongo-express
+  container_name: mongoAdmin
+  restart: always
+  ports:
+    - 8081:8081
+  environment:
+    ME_CONFIG_MONGODB_ADMINUSERNAME: root
+    ME_CONFIG_MONGODB_ADMINPASSWORD: ilya
+################################################################
+# Script python to store data received from Broker in database ILYA
+collect:
+  build : collectData
+  container_name: collectData
+  restart: always
+  links :
+    - "db:db"
+################################################
+# Service which run node-red where run the UI
+# <ipHost>:1880/ui
+dashboard :
+  image : nodered/node-red 
+  container_name: ilyaUI
+  restart: always
+  ports :
+    - 1880:1880
+  links :
+    - "db:db"
+
+
