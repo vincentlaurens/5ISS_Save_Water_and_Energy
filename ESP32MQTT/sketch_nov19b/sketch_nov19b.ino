@@ -1,11 +1,11 @@
-#include <WiFi.h>
+#include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include<ArduinoJson.h>
 
 
 // Update these with values suitable for your network.
-const char* ssid = "MgMk";
-const char* password = "grosboule";
+ char* ssid = "POCOPHONE";
+ char* password = "grosboule";
 const char* mqtt_server = "maqiatto.com";
 #define mqtt_port 1883
 #define MQTT_USER "mickaelcommerot1@gmail.com"
@@ -29,11 +29,10 @@ void setup_wifi() {
     delay(500);
     Serial.print(".");
   }
-  randomSeed(micros());
+  //randomSeed(micros());
   Serial.println("");
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
 }
 
 void reconnect() {
