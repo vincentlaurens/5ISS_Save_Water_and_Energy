@@ -6,7 +6,7 @@
 #include<EEPROM.h>
 
 #define WIFI_CONFIG_ADDRESS 10
-#define ID_LENGHT 10
+#define ID_LENGHT 40
 // Update these with values suitable for your network.
 const char* mqtt_server = "maqiatto.com";
 #define mqtt_port 1883
@@ -24,8 +24,8 @@ WiFiManagerParameter *espid;
 //JSON COnfig
   const int capacity = JSON_OBJECT_SIZE(2);
   StaticJsonDocument<capacity> Datadoc;
-  StaticJsonDocument<capacity> Objectdoc;
-  StaticJsonDocument<256> Datasdoc;
+ StaticJsonDocument<2048> Objectdoc;
+  StaticJsonDocument<1024> Datasdoc;
   JsonArray array = Datasdoc.to<JsonArray>();
 
 //TIMER CONFIG
@@ -149,15 +149,20 @@ void setup() {
   EEPROM.begin(sizeof(esp_id) + WIFI_CONFIG_ADDRESS);
   esp_id=read_String(WIFI_CONFIG_ADDRESS);
   WiFiManager wifiManager;
+  Serial.println("ESP ID after allocating");
+  Serial.println(esp_id.c_str());
   espid=new WiFiManagerParameter("EspId", "Esp Id :", esp_id.c_str(), ID_LENGHT);
   wifiManager.addParameter(espid);
   wifiManager.autoConnect("AutoConnectAP"); 
   Serial.println("EEPROM BEFORE ADDING :");
   Serial.println(read_String(WIFI_CONFIG_ADDRESS));
-  if (esp_id==NULL){
-  esp_id=espid->getValue();
+  String idval=espid->getValue();
+  if (esp_id!=idval){
+  esp_id=idval;
   writeString(WIFI_CONFIG_ADDRESS,esp_id);
   }
+   Serial.println("ESP ID after allocating");
+  Serial.println(esp_id.c_str());
   Serial.println("EEPROM AFTER ADDING :");
   Serial.println(read_String(WIFI_CONFIG_ADDRESS));
   Serial.println("connected...yeey :)");
@@ -188,30 +193,29 @@ void loop() {
   //Datadoc["id"] = espid->getValue();
   if(now-DatasPrev>DatasDelayMs)
   {
-    if(DataCounter<10){
+    if(DataCounter<7){
       DatasPrev=now;
       PrintDBTP();
       Datadoc.clear();
       Datadoc["temp"] = temperature;
       Datadoc["debit"] = l_hour;  
       String izi;
-      serializeJson(Datadoc,izi);/*
+      serializeJson(Datadoc,izi);
       Serial.println("Datadoc");
-      Serial.println(izi);*/
-      array.add(izi);
-      
-      /*String izi2;
-      serializeJson(array,izi2);
-      Serial.println("array");
-      Serial.println(izi2);*/
+      Serial.println(izi);
+      array.add(Datadoc);
       DataCounter++;
+       Serial.println("DataCounter");
+      Serial.println(DataCounter);
     }else{
       DataCounter=0;    
       String Objectrep;
       String Arrayrep;
-      serializeJson(array,Arrayrep);  
+      serializeJson(array,Arrayrep); 
+       Serial.println("Arrayrep");
+      Serial.println(Arrayrep.c_str()); 
       Objectdoc["id"]=espid->getValue();
-      Objectdoc["Datas"]=Arrayrep.c_str();
+      Objectdoc["Datas"]=array;
       serializeJson(Objectdoc,Objectrep);  
       Serial.println("Objectrep");
       Serial.println(Objectrep.c_str());
