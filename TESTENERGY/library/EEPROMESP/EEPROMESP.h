@@ -4,12 +4,14 @@
 
 */
 
-#ifndef EEPROM_ESP
-#def EEPROM_ESP
+#ifndef EEPROMESP_h
+#define EEPROMESP_h
 
+#ifndef EEPROM_h
  #include<EEPROM.h>
+#endif
 
-    class EEPROM_ESP {
+    class EEPROMESP {
         public:
 
             /**
@@ -27,8 +29,8 @@
             /** 
                 Create A FUNCTION which launch.
             */
-            void writeString(char add,String data)
-            String read_String(char add)
+            void writeString(char add,String data);
+            String read_String(char add);
 
             
     };

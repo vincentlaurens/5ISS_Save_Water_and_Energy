@@ -4,19 +4,16 @@
 
 */
 
-#ifndef SENSOR
-#def SENSOR
+#ifndef Sensor_h
+#define Sensor_h
 
 #include <math.h>
 
 class Sensor
 {
   public:
-
-    void PrintDBTP();
-    void IRAM_ATTR flow ()
     
-    //Sensors
+    //Sensors Variables 
     volatile int flow_frequency; // Measures flow sensor pulses
     unsigned int l_hour; // Calculated litres/hour
     float temperature;
@@ -26,6 +23,9 @@ class Sensor
     const int R0 = 100000;            // R0 = 100k
     const int pinTempSensor = A0;     // Grove - Temperature Sensor connect to A0
 
+    //Sensor functions
+    void PrintDBTP();
+    void IRAM_ATTR flow ();
     
 
-#end
+#endif

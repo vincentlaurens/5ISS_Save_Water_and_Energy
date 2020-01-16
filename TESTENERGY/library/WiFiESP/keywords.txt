@@ -1,2 +1,2 @@
-WiFi   KEYWORD1
+WiFiESP   KEYWORD1
 reconnect    KEYWORD2

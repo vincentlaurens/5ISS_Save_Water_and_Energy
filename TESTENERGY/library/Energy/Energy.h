@@ -4,13 +4,13 @@
 
 */
 
-#ifndef ENERGY
-#def ENERGY
+#ifndef Energy_h
+#define Energy_h
 
     class Energy {
         public:
             /** 
-                TO BE COMPLETED
+                File TO BE COMPLETED
 
             */
 
