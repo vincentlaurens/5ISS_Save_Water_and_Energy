@@ -7,23 +7,23 @@
 #ifndef Energy_h
 #define Energy_h
 
+#ifndef Arduino_h
+  #include <Arduino.h>
+#endif
+#include "Energy.h"
+
     class Energy {
         public:
-            /** 
-                File TO BE COMPLETED
+            /*File TO BE COMPLETED*/
 
+           /*
+            *Functions
             */
 
            /*
-
-            Functions
-           */
-
-           /*
-
-            Variables
-           */
-          
+            *Variables
+            */
+    };  
 
 
 #endif
