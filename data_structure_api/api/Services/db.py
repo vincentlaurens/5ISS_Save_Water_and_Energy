@@ -7,7 +7,6 @@ from datetime import datetime
 # Function to process recieved message
 
 def process_message(client, userdata, message):  
-    print("je suis la")
     insert_Sensor_data(json.loads(str(message.payload.decode("utf-8"))))
 
 
@@ -99,7 +98,7 @@ def insert_Sensor_data(data):
     print("ok")
     db = conn["indexes"]
     print("ok")
-    step=1
+    step=7
     for name in db.collection_names():
         if db[name].find_one(path) is None: 
             print("None")
@@ -117,7 +116,7 @@ def insert_Sensor_data(data):
                 structure_data=[]
                 step=1
                 print("je rentre")
-                for i in reversed(datas):
+                for i in datas:
                    print(i)
                    tmp={}
                    if ( i !=None):
@@ -129,7 +128,8 @@ def insert_Sensor_data(data):
                    else:
                         tmp["timestamp"]=ts-10*step
                    structure_data.append(tmp)
-                   step=step+1
+                   step=step-1
+                   print(step)
                 print(structure_data)
                 room.insert_many(structure_data)
                 conn.close()
