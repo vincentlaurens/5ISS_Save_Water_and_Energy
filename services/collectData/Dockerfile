@@ -3,10 +3,10 @@ FROM ubuntu:18.04
 EXPOSE 9090
 WORKDIR /script
 
-RUN apt-get update && apt-get install -y python3 && apt-get install -y python3-pip
-
-#Put code python for collect here
-ADD script/test.py .
+RUN apt-get update && apt-get install -y python && apt-get install -y python-pip && pip install flask && pip install flask_rest
 
 
-CMD python3 test.py
+ADD script/data_structure_api .
+
+
+CMD python3 app.py

@@ -45,5 +45,8 @@ dashboard :
     - 1880:1880
   links :
     - "db:db"
+#then install package node-red/node-red-dashboard on node-red manage-palette menu
+#deploy flow
+#open <ipHost>:1880/ui in a browser
 
 
