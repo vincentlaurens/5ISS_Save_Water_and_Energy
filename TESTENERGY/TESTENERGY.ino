@@ -23,13 +23,13 @@ WiFiManagerParameter *espid;
 //JSON COnfig
   const int capacity = JSON_OBJECT_SIZE(2);
   StaticJsonDocument<capacity> Datadoc;
- StaticJsonDocument<2048> Objectdoc;
+  StaticJsonDocument<2048> Objectdoc;
   StaticJsonDocument<1024> Datasdoc;
   JsonArray array = Datasdoc.to<JsonArray>();
 
 //TIMER CONFIG
 
-constexpr unsigned long DatasDelayMs = 1000;
+constexpr unsigned long DatasDelayMs = 10000;
 unsigned long DatasPrev = 0;
 constexpr unsigned long ShowerDelay = 60000;
 unsigned long ShowerStop=0;
@@ -190,17 +190,16 @@ void publishSerialData(char *serialData) {
 void loop() {
   client.loop();
   auto now=millis();
-  //Datadoc["id"] = espid->getValue();
-   auto calcc=now-ShowerStop;
-   Serial.println("now-ShowerStop::");
-   Serial.println(calcc);
-    Serial.println("IsShower");
-    Serial.println(isShower);
-  if(now-ShowerStop>ShowerDelay){
-    Serial.println("PLUUUUUUUUUUUUUUUUUUUUS DE DOUUUUUUUUUUUUUUUUUCHE");
+  auto calcc=now-ShowerStop;
+  if(calcc>ShowerDelay){
+    //Serial.println("PLUUUUUUUUUUUUUUUUUUUUS DE DOUUUUUUUUUUUUUUUUUCHE");
+    /*if(WiFi.status() == WL_CONNECTED){
+    WiFi.mode(WIFI_SHUTDOWN);}*/
   isShower=false;
   }else{
-    // isShower=true;
+    /*if(WiFi.status() != WL_CONNECTED){
+    WiFi.mode(WIFI_RESUME);
+    }*/
   }
   if(now-DatasPrev>DatasDelayMs)
   {
