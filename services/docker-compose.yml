@@ -28,7 +28,7 @@ mongo-express:
     ME_CONFIG_MONGODB_ADMINPASSWORD: ilya
 ################################################################
 # Script python to store data received from Broker in database ILYA
-collect:
+api:
   build : collectData
   container_name: collectData
   restart: always
