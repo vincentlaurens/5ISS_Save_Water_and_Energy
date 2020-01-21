@@ -13,6 +13,7 @@ db:
     MONGO_INITDB_ROOT_PASSWORD: ilya
   ports:
   - 27017:27017
+  - 27018:27018
   volumes:
   - ./data:/data/db:rw
 ################################################################
