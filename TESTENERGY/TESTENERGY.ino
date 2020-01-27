@@ -1,12 +1,21 @@
+
+/*
+ * Includes
+ */
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include<ArduinoJson.h>
 #include <math.h>
 #include <WiFiManager.h>
 #include<EEPROM.h>
+/*
+ * defines
+ */
 #define WIFI_CONFIG_ADDRESS 10
 #define ID_LENGHT 40
-// Update these with values suitable for your network.
+#define Nobj 7
+//MQTT CONFIG
+//Update these with values suitable for your network.
 const char* mqtt_server = "maqiatto.com";
 #define mqtt_port 1883
 #define MQTT_USER "mickaelcommerot1@gmail.com"
@@ -14,8 +23,13 @@ const char* mqtt_server = "maqiatto.com";
 #define MQTT_SERIAL_PUBLISH_CH "mickaelcommerot1@gmail.com/ilya"
 #define MQTT_SERIAL_ALERT "mickaelcommerot1@gmail.com/alert"
 #define MQTT_SERIAL_RECEIVER_CH "mickaelcommerot1@gmail.com/ilya"
+
+//ESP_ID
 String esp_id ;
+
+//Shower Detection variable
 bool isShower=false;
+
 //Wifi Manager Config
 WiFiClient wifiClient;
 WiFiManagerParameter *espid;
@@ -28,13 +42,14 @@ WiFiManagerParameter *espid;
   JsonArray array = Datasdoc.to<JsonArray>();
 
 //TIMER CONFIG
-
+//Time between 2 acquisitions
 constexpr unsigned long DatasDelayMs = 10000;
 unsigned long DatasPrev = 0;
+//Time of a shower (will set isShower to false after 60000ms when the water flow is stopped)
 constexpr unsigned long ShowerDelay = 60000;
 unsigned long ShowerStop=0;
 
-//
+// Number of discrete sensor acquisition wanted per packet
 int DataCounter=0;
 
 PubSubClient client(wifiClient);
@@ -52,6 +67,11 @@ const int pinTempSensor = A0;     // Grove - Temperature Sensor connect to A0
 //
 
 //EEPROM
+/*
+ * this function write at a specific eeprom address the Id 
+ * @param : add address where to find the Id inside EEPROM
+ * @param : data String object that contains the Id
+ */
 void writeString(char add,String data)
 {
   int _size = data.length();
@@ -64,7 +84,11 @@ void writeString(char add,String data)
   EEPROM.commit();
 }
 
-
+/*
+ * This functions returns the Id stored inside the EEPROM at a given address area
+ * @param : add address where to find the Id inside EEPROM
+ * @return : String that contains the Id at the specific address mentionned
+ */
 String read_String(char add)
 {
   int i;
@@ -82,7 +106,9 @@ String read_String(char add)
   return String(data);
 }
 
-//
+/*
+ * Function used to read data from sensors
+ */
 void PrintDBTP(){
   int a = analogRead(pinTempSensor);
     float R = 1023.0/a-1.0;
@@ -93,16 +119,15 @@ void PrintDBTP(){
    if(currentTime >= (cloopTime + 1000))
    {
       cloopTime = currentTime; // Updates cloopTime
-      // Pulse frequency (Hz) = 7.5Q, Q is flow rate in L/min.
+      // Pulse frequency (Hz) = 7.5Q, Q is flow rate in L/min. Need to be calibrated!
       l_hour = (flow_frequency * 60 / 7.5); // (Pulse frequency x 60 min) / 7.5Q = flowrate in L/hour
       flow_frequency = 0; // Reset Counter
-      //Serial.print("temperature = ");
-   // Serial.println(temperature);
-    //  Serial.print(l_hour,DEC); // Print litres/hour
-    //  Serial.println(" L/hour");
    }
 }
-
+/*
+ * Interrupt function which occurs when the waterflow sensors is working
+ * Increase the flow frequency and set the shower detection to true.
+ */
 void IRAM_ATTR flow () // Interrupt function
 {
    flow_frequency++;
@@ -110,6 +135,9 @@ void IRAM_ATTR flow () // Interrupt function
    ShowerStop=millis();
 }
 
+/*
+ * Function used to connect to the mqtt broker
+ */
 void reconnect() {
   // Loop until we're reconnected
   while (!client.connected()) {
@@ -134,6 +162,9 @@ void reconnect() {
   }
 }
 
+/*
+ * Listner when a message is send to a broker , print the message.
+ */
 void callback(char* topic, byte *payload, unsigned int length) {
   Serial.println("-------new message from broker-----");
   Serial.print("channel:");
@@ -181,29 +212,30 @@ void setup() {
 ;
 }
 
+/*
+ * Function usefull to publish serial data
+ * we do not use it in the code but it is here just in case
+ */
 void publishSerialData(char *serialData) {
   if (!client.connected()) {
     reconnect();
   }
   client.publish(MQTT_SERIAL_PUBLISH_CH, serialData);
 }
+
+/*
+ * Main function of the projet the loop
+ */
 void loop() {
   client.loop();
   auto now=millis();
   auto calcc=now-ShowerStop;
   if(calcc>ShowerDelay){
-    //Serial.println("PLUUUUUUUUUUUUUUUUUUUUS DE DOUUUUUUUUUUUUUUUUUCHE");
-    /*if(WiFi.status() == WL_CONNECTED){
-    WiFi.mode(WIFI_SHUTDOWN);}*/
   isShower=false;
-  }else{
-    /*if(WiFi.status() != WL_CONNECTED){
-    WiFi.mode(WIFI_RESUME);
-    }*/
   }
   if(now-DatasPrev>DatasDelayMs)
   {
-    if(DataCounter<7){
+    if(DataCounter<Nobj){
       DatasPrev=now;
       PrintDBTP();
       Datadoc.clear();
