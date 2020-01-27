@@ -55,13 +55,13 @@ You will see all the databases. The databases are created by the API at the firs
 # How to deploy our services on cloud by barely method or using a host OS
 
 In folder "services" run following command to deploy services
-'''
+```bash
 docker-compose up -d
-'''
+```
 run following command to stop all services
-'''
+```bash
 docker-compose down
-'''
+```
 
 Then open 127.0.0.1:1880 and on the interface
 select menu on the top-right corner
