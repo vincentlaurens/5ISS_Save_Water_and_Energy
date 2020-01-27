@@ -27,7 +27,7 @@ Project ILYA
 
 ## Architecture of the solution
 
-![Architecture](./images/architecture.png)
+![Architecture](images/architecture.PNG)
 
 
 ## Device Layer
