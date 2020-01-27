@@ -44,7 +44,8 @@ expliquer l'application
 
 
 ## VM
-
+Download the VM on the link : https://drive.google.com/drive/folders/14bD5Wj_I1dPEdrXSYJpSs-G7y7vcGLyr?usp=sharing
+Install VirtualBox and launch the VM.
 Connect to the VM using  ilya/ilya then you have a document which explain every thing on the VM Desktop.
 Open a browser and enter http://127.0.0.1:1880/ui to show dashboards.
 Then if you go on http://127.0.0.1:1880 you will see code of flows and then you can modify them or deploy them.
