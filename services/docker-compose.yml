@@ -1,0 +1,42 @@
+################################################################"
+# Code to deploy UI and DB container
+# Wriitten by ILYA dev 
+# written on Janvier 2020
+#################################################################
+# DB service mongo
+db:
+  image: mongo
+  restart: always
+  container_name: ilyaDB
+  environment:
+    MONGO_INITDB_ROOT_USERNAME: root
+    MONGO_INITDB_ROOT_PASSWORD: ilya
+  ports:
+  - 27017:27017
+  - 27018:27018
+  volumes:
+  - ./data:/data/db:rw
+################################################################
+# Script python to store data received from Broker in database ILYA
+api:
+  build : collectData
+  container_name: collectData
+  restart: always
+  links :
+    - "db:db"
+################################################
+# Service which run node-red where run the UI
+# <ipHost>:1880/ui
+dashboard :
+  image : nodered/node-red 
+  container_name: ilyaUI
+  restart: always
+  ports :
+    - 1880:1880
+  links :
+    - "db:db"
+#then install package node-red/node-red-dashboard on node-red manage-palette menu
+#deploy flow
+#open <ipHost>:1880/ui in a browser
+
+
