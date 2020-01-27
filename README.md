@@ -45,6 +45,13 @@ expliquer l'application
 
 ## VM
 
+Connect to the VM using  ilya/ilya then you have a document which explain every thing on the VM Desktop.
+Open a browser and enter http://127.0.0.1:1880/ui to show dashboards.
+Then if you go on http://127.0.0.1:1880 you will see code of flows and then you can modify them or deploy them.
+You will find flows on ApplicationLayer/UI.
+If you want to monitor DataBase you can open a terminal (you can use shortcut ctrl+Alt+T) enter the command : "mongodb-compass&"
+Then open a browser and see the interface. enter 127.0.0.1:27017 and press enter.
+You will see all the databases. The databases are created by the API at the first data reception.
 # How to deploy our services on cloud by barely method or using a host OS
 
 In folder "services" run following command to deploy services
