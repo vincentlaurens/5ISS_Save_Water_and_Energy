@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name KicadILYA-eagle-import)(type Legacy)(uri ${KIPRJMOD}/KicadILYA-eagle-import.lib)(options "")(descr ""))
+  (lib (name ESP8266)(type Legacy)(uri /home/vlaurens/Documents/5ISS/5ISS_Save_Water_and_Energy/kicad/kicad-ESP8266/ESP8266.lib)(options "")(descr ""))
+  (lib (name MyRelay)(type Legacy)(uri /home/vlaurens/Documents/5ISS/5ISS_Save_Water_and_Energy/kicad/KicadILYA/MyRelay.lib)(options "")(descr ""))
+  (lib (name MyConnectors)(type Legacy)(uri /home/vlaurens/Documents/5ISS/5ISS_Save_Water_and_Energy/kicad/KicadILYA/MyConnectors.lib)(options "")(descr ""))
+)

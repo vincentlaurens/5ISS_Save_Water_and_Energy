@@ -1,0 +1,35 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Flow_connector
+#
+DEF Flow_connector U3 0 40 Y Y 1 F N
+F0 "U3" 0 0 50 H V C CNN
+F1 "Flow_connector" 0 0 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+S -200 -200 50 -300 0 1 0 N
+X VCC 1 0 -400 100 U 50 50 1 1 W
+X GND 2 -100 -400 100 U 50 50 1 1 W
+X SIG 3 -150 -400 100 U 50 50 1 1 B
+ENDDRAW
+ENDDEF
+#
+# Temperature_connector
+#
+DEF Temperature_connector U 0 40 Y Y 1 F N
+F0 "U" 0 0 50 H V C CNN
+F1 "Temperature_connector" 0 0 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+S -350 -50 50 -300 0 1 0 N
+X VCC 1 -300 -400 100 U 50 50 1 1 W
+X GND 2 -200 -400 100 U 50 50 1 1 W
+X NC 3 -100 -400 100 U 50 50 1 1 B
+X SIG 4 0 -400 100 U 50 50 1 1 B
+ENDDRAW
+ENDDEF
+#
+#End Library

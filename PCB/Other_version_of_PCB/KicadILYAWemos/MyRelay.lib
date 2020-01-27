@@ -1,0 +1,20 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Relay_2_pins
+#
+DEF Relay_2_pins U 0 40 Y Y 2 F N
+F0 "U" 0 0 50 H V C CNN
+F1 "Relay_2_pins" 0 0 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+S 250 -350 0 -250 0 1 0 N
+X 5V ~ 50 -450 100 U 50 50 1 1 I
+X GND ~ 200 -450 100 U 50 50 1 1 I
+X 5V ~-UB 50 -450 100 U 50 50 2 1 I
+X GND ~-UB 200 -450 100 U 50 50 2 1 I
+ENDDRAW
+ENDDEF
+#
+#End Library
