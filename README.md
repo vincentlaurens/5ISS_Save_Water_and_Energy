@@ -17,13 +17,35 @@ Project ILYA
     |-DeviceLayer
     |   |-ESP_Code
     |-ApplicationLayer
-        |-data_structure_api
-        |-UI
-'''
+    |   |-data_structure_api
+    |   |-UI
+    |-VM
+    |   |-README
+```
 
 
 
-## How to deploy our services on cloud by barely method or using a host OS
+## Architecture of the solution
+
+![Architecture](./images/architecture.png)
+
+
+## Device Layer
+
+expliquer le code esp
+
+## Network Layer
+
+expliquer maqiatto
+## Application Layer
+
+
+expliquer l'application
+
+
+## VM
+
+# How to deploy our services on cloud by barely method or using a host OS
 
 In folder "services" run following command to deploy services
 '''
