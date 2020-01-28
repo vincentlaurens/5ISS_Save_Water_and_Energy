@@ -36,7 +36,20 @@ expliquer le code esp.
 
 ## Network Layer
 
-expliquer maqiatto: la conf imprime écran 
+1.  Create an account on http://maqiatto.com
+   Click on "CREATE ACCOUNT"
+   Create your account
+2.  After login, clic on your email address on the left top corner
+   On the dropdown menu clic on "Broker configuration"
+3.  Next page should appear
+    ![Maqiatto broker configuration](images/maqiatto.PNG)
+    ADD the same topics as shown on the figure (cf First part :Device Layer where you have to replace created topic on the  global code variables)
+4. Once differents topics are created you can monitor reception of JSON object by connecting to the http://www.hivemq.com/demos/websocket-client/ on a private window in your browser.
+    Then you have to fill all the fields as shown in the next figure
+    ![hivemq configuration](images/hivemq.PNG)
+    Note that vlaurens@etud.insa-toulouse.fr/ilya is the main topic where all data are going to be sent. ( <maqiattoUsername>/ilya ingeneral).
+ Ajouter image après  connexion
+
 ## Application Layer
 
 
@@ -44,31 +57,31 @@ expliquer l'application
 
 Go on "ApplicationLayer/data_structure_api" folder and run following command:
 ````
-`python app.py
+$ python app.py
 ````
 
 The API is ready to collect data from broker and store it on mongodb.
 
 ## VM
-Download the VM on the link : https://drive.google.com/drive/folders/14bD5Wj_I1dPEdrXSYJpSs-G7y7vcGLyr?usp=sharing
-Install VirtualBox and launch the VM.
-Connect to the VM using  ilya/ilya then you have a document which explain every thing on the VM Desktop.
-Open a browser and enter http://127.0.0.1:1880/ui to show dashboards.
-Then if you go on http://127.0.0.1:1880 you will see code of flows and then you can modify them or deploy them.
-You will find flows on http://ApplicationLayer/UI. If you cane't show them import the two flows which are on folder "ApplictionLayer/UI" as described on the following tutorial: https://nodered.org/docs/user-guide/editor/workspace/import-export.
-If some package are missing install "node-red-contib-ui" via install menu of nodered.
-If you want to monitor DataBase you can open a terminal (you can use shortcut ctrl+Alt+T) enter the command : "mongodb-compass&"
-Then open a browser and see the interface. enter 127.0.0.1:27017 and press enter.
-You will see all the databases. The databases are created by the API at the first data reception.
+- Download the VM on the link : https://drive.google.com/drive/folders/14bD5Wj_I1dPEdrXSYJpSs-G7y7vcGLyr?usp=sharing
+- Install VirtualBox and launch the VM.
+- Connect to the VM using  ilya/ilya then you have a document which explain every thing on the VM Desktop.
+- Open a browser and enter http://127.0.0.1:1880/ui to show dashboards.
+- Then if you go on http://127.0.0.1:1880 you will see code of flows and then you can modify them or deploy them.
+  You will find flows on http://ApplicationLayer/UI. If you can't show them import the two flows which are on folder "ApplictionLayer/UI" as described on the following tutorial: https://nodered.org/docs/user-guide/editor/workspace/import-export.
+  If some package are missing install "node-red-contib-ui" via install menu of nodered.
+  If you want to monitor DataBase you can open a terminal (you can use shortcut ctrl+Alt+T) enter the command : "mongodb-compass&"
+- Then open a browser and see the interface. enter 127.0.0.1:27017 and press enter.
+  You will see all the databases. The databases are created by the API at the first data reception.
 # How to deploy our services on cloud by barely method or using a host OS
 
 In folder "services" run following command to deploy services
 ```bash
-docker-compose up -d
+$ docker-compose up -d
 ```
 run following command to stop all services
 ```bash
-docker-compose down
+$ docker-compose down
 ```
 
 Then open 127.0.0.1:1880 and on the interface
