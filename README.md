@@ -75,11 +75,36 @@ The API is ready to collect data from broker and store it on mongodb.
 ## VM <a name="paragraph6"></a>
 - Download the VM on the link : https://drive.google.com/drive/folders/14bD5Wj_I1dPEdrXSYJpSs-G7y7vcGLyr?usp=sharing
 - Install VirtualBox and launch the VM.
-- Connect to the VM using  ilya/ilya then you have a document which explain every thing on the VM Desktop.
+- Connect to the VM using  ilya/ilya then you have a document which explains every thing on the VM Desktop.
+- Go on API folder
+```bash 
+  $ cd ~/Documents/API/data_structure_api/
+  ```
+ - Run the API like describe on Application Layer section:
+ ````
+$ python app.py
+````
 - Open a browser and enter http://127.0.0.1:1880/ui to show dashboards.
-- Then if you go on http://127.0.0.1:1880 you will see code of flows and then you can modify them or deploy them.
-  You will find flows on http://ApplicationLayer/UI. If you can't show them import the two flows which are on folder "ApplictionLayer/UI" as described on the following tutorial: https://nodered.org/docs/user-guide/editor/workspace/import-export.
-  If some package are missing install "node-red-contib-ui" via install menu of nodered.
+- If you can't access it:
+- Run on a Terminal (ctrl+Alt+T) : node-red  command
+ ```bash 
+  $ node-red
+  ```
+- Then go on http://127.0.0.1:1880 you will see code of flows and then you can modify them or deploy them.
+  You will find flows on 
+  ```bash 
+  $ cd ~/Documents/API/UI/
+  ```
+  If you can't show them import the two flows which are on folder "ApplictionLayer/UI" as described on the following tutorial: https://nodered.org/docs/user-guide/editor/workspace/import-export.
+  If some package are missing install "node-red-contrib-ui" via install menu of nodered.
+    - Go on the same menu as import 
+    - Choose "manage Palette"
+    - Go on install package section
+    - Search "node-red-contrib-ui" and install it
+    - Exit and close "manage Palette" popup
+    - Then Deploy Flow by clicking on "Deploy" Button.
+    - Visit http://127.0.0.1:1880/ui
+  
   If you want to monitor DataBase you can open a terminal (you can use shortcut ctrl+Alt+T) enter the command : "mongodb-compass&"
 - Then open a browser and see the interface. enter 127.0.0.1:27017 and press enter.
   You will see all the databases. The databases are created by the API at the first data reception.
