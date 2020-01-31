@@ -78,16 +78,37 @@ This parameters are configurable in the source code which is commented to know t
 
 ## Application Layer <a name="paragraph5"></a>
 
+You can deploy the application either on a Ubuntu Virtual Machine or by deploying containers as describe in part 7 or on your computer if you have python installed but you will need to install some python modules using command and install mongo (https://docs.mongodb.com/manual/installation/) and for configuring data base mongodb-compass (https://www.mongodb.com/products/compass)
+````
+$  sudo apt-get update && apt-get install -y apt-utils && apt-get install -y python && apt-get install -y python-pip && pip install requests && pip install flask && pip install flask_restplus && pip install paho-mqtt && pip install pymongo
+````
+Then if you decide to install on your machine you have to install npm and nodejs (https://nodejs.org/fr/download/) to be able to install node-red and run the UI.
 
-expliquer l'application
-
-Go on "ApplicationLayer/data_structure_api" folder and run following command:
+Then you will download the "ApplicationLayer/data_structure_api" folder from git repository
+Move on the folder and run command:
 ````
 $ python app.py
 ````
 
 The API is ready to collect data from broker and store it on mongodb.
 
+Then run 
+````
+$ node-red
+````
+Then open a browser and go on http://127.0.0.1:1880
+If you can't show flows import the two flows which are on folder "ApplictionLayer/UI" as described on the following tutorial: https://nodered.org/docs/user-guide/editor/workspace/import-export.
+  If some package are missing install "node-red-contrib-ui" via install menu of nodered.
+    - Go on the same menu as import 
+    - Choose "manage Palette"
+    - Go on install package section
+    - Search "node-red-contrib-ui" and install it
+    - Exit and close "manage Palette" popup
+    - Then Deploy Flow by clicking on "Deploy" Button.
+    - Visit http://127.0.0.1:1880/ui
+Then we present you a means to install a VM or the VM we prepare and do the same operation to deploy application on the VM.
+We finally show how to deploy our application with containers docker instead of using VM. A better solution for a large scale deployment.
+Notice : The VM can be deploy directly on a cloud platform.
 ## VM <a name="paragraph6"></a>
 - Download the VM on the link : https://drive.google.com/drive/folders/14bD5Wj_I1dPEdrXSYJpSs-G7y7vcGLyr?usp=sharing
 - Install VirtualBox and launch the VM. You can do like in this tutorial :<a href="https://www.vulgarisation-informatique.com/installer-virtualbox.php"> How to install VirtualBox and launch VM</a>
