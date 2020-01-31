@@ -85,6 +85,7 @@ $  sudo apt-get update && apt-get install -y apt-utils && apt-get install -y pyt
 Then if you decide to install on your machine you have to install npm and nodejs (https://nodejs.org/fr/download/) to be able to install node-red and run the UI.
 
 Then you will download the "ApplicationLayer/data_structure_api" folder from git repository
+
 Move on the folder and run command:
 ````
 $ python app.py
@@ -106,9 +107,13 @@ If you can't show flows import the two flows which are on folder "ApplictionLaye
     - Exit and close "manage Palette" popup
     - Then Deploy Flow by clicking on "Deploy" Button.
     - Visit http://127.0.0.1:1880/ui
+    
 Then we present you a means to install a VM or the VM we prepare and do the same operation to deploy application on the VM.
+
 We finally show how to deploy our application with containers docker instead of using VM. A better solution for a large scale deployment.
+
 Notice : The VM can be deploy directly on a cloud platform.
+
 ## VM <a name="paragraph6"></a>
 - Download the VM on the link : https://drive.google.com/drive/folders/14bD5Wj_I1dPEdrXSYJpSs-G7y7vcGLyr?usp=sharing
 - Install VirtualBox and launch the VM. You can do like in this tutorial :<a href="https://www.vulgarisation-informatique.com/installer-virtualbox.php"> How to install VirtualBox and launch VM</a>
@@ -134,6 +139,7 @@ $ python app.py
   ```
   If you can't show them import the two flows which are on folder "ApplictionLayer/UI" as described on the following tutorial: https://nodered.org/docs/user-guide/editor/workspace/import-export.
   If some package are missing install "node-red-contrib-ui" via install menu of nodered.
+  
     - Go on the same menu as import 
     - Choose "manage Palette"
     - Go on install package section
@@ -143,6 +149,7 @@ $ python app.py
     - Visit http://127.0.0.1:1880/ui
   
   If you want to monitor DataBase you can open a terminal (you can use shortcut ctrl+Alt+T) enter the command : "mongodb-compass&"
+  
 - Then open a browser and see the interface. enter 127.0.0.1:27017 and press enter.
   You will see all the databases. The databases are created by the API at the first data reception.
   
