@@ -53,7 +53,7 @@ This is the Bom of our Module:
 |Node-MCU ESP8266	X1                 |   X1  |
 |Grove Base Shield for NodeMCU         |   X1  |
 
-The Arduino Code can retrieve Datas from sensors during a certain period : each 10 sec
+The Arduino Code can retrieve data from sensors during a certain period : each 10 sec
 Number of acquisition : 7 , Total time of acquisition : 70 sec.
 
 This parameters are configurable in the source code which is commented to know the purposes of functions and variables
