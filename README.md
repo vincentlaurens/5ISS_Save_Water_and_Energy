@@ -45,13 +45,13 @@ Project ILYA
 The Device layer is Composed of 4 different components for one module.
 There are 2 sensors , 1 Microcontroller, 1 Shield.
 This is the Bom of our Module:
+
 |DEVICE NAME	                       |NUMBER |
------------------------------------------------
+| -----------------------------------: | ----: |
 |Grove - Temperature Sensor V1.2       |   X1  |
 |YFS-201 Hall Effect Water Flow Sensor |   X1  |
 |Node-MCU ESP8266	X1                 |   X1  |
 |Grove Base Shield for NodeMCU         |   X1  |
-------------------------------------------------
 
 The Arduino Code can retrieve Datas from sensors during a certain period : each 10 sec
 Number of acquisition : 7 , Total time of acquisition : 70 sec.
