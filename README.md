@@ -90,7 +90,7 @@ The API is ready to collect data from broker and store it on mongodb.
 
 ## VM <a name="paragraph6"></a>
 - Download the VM on the link : https://drive.google.com/drive/folders/14bD5Wj_I1dPEdrXSYJpSs-G7y7vcGLyr?usp=sharing
-- Install VirtualBox and launch the VM.
+- Install VirtualBox and launch the VM. You can do like in this tutorial :<a href="https://www.vulgarisation-informatique.com/installer-virtualbox.php"> How to install VirtualBox and launch VM</a>
 - Connect to the VM using  ilya/ilya then you have a document which explains every thing on the VM Desktop.
 - Go on API folder
 ```bash 
