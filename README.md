@@ -98,8 +98,11 @@ Then run
 $ node-red
 ````
 Then open a browser and go on http://127.0.0.1:1880
+
 If you can't show flows import the two flows which are on folder "ApplictionLayer/UI" as described on the following tutorial: https://nodered.org/docs/user-guide/editor/workspace/import-export.
+
   If some package are missing install "node-red-contrib-ui" via install menu of nodered.
+  
     - Go on the same menu as import 
     - Choose "manage Palette"
     - Go on install package section
